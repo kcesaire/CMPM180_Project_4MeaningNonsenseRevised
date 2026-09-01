@@ -1,0 +1,88 @@
+body {
+    background-color: #f7f7f8;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+
+.score-box {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    text-align: right;
+    font-size: 1em;
+    font-weight: 500;
+    color: #555;
+    line-height: 1.5;
+}
+
+.score-box span {
+    font-weight: 700;
+    color: #000;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.poem-box {
+    width: 100%;
+    min-height: 180px;
+    background-color: #ffffff;
+    border: 1px solid #e2e2e5;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+#poem-display {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    text-align: center;
+    text-wrap: balance;
+    word-break: break-word;
+}
+
+.prompt {
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+}
+
+button {
+    background-color: #ffffff;
+    color: #111;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+button:hover {
+    background-color: #eaeaea;
+    border-color: #999;
+}
+
+button:active {
+    transform: scale(0.98);
+}

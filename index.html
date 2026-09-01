@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8" />
+        <title> Project 2</title>
+        <link rel="Stylesheet" href="index.css">
+        
+    </head>
+    <body style="background-color: rgb(175, 175, 175);">
+        <div class="score-box">
+            <div>Score: <span id="score-display">0</span></div>
+            <div>High Score: <span id="highscore-display">0</span></div>
+        </div>
+
+        <main class="container">
+            <div class="poem-box">
+                <p id="poem-display"></p>
+            </div>
+        
+            <p class="prompt">Is this poem...</p>
+            <div class="buttons">
+                <button onclick="addWord()">Meaningful</button>
+                <button onclick="clearPoem()">Nonsense</button>
+            </div>
+        </main>
+        <script src = "project.js"></script>
+    </body>
+
+    
+</html>
