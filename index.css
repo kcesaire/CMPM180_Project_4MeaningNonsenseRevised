@@ -1,19 +1,26 @@
+/* 
+  Global styling for the entire body (the root display window).
+  Similar to setting window dimensions and background in a Python Pygame/Turtle canvas.
+*/
 body {
     background-color: #f7f7f8;
-    color: #222;
-    min-height: 100vh;
+    color: #222;               /* Default text color */
+    min-height: 100vh;         /* 100vh = 100% of the viewport (screen) height */
+    
+    /* Flexbox: layout engine used to center items horizontally and vertically */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    justify-content: center;   /* Centers children horizontally along the main axis */
+    align-items: center;       /* Centers children vertically along the cross axis */
+    
+    position: relative;        /* Creates a coordinate reference frame for absolute children */
     padding: 20px;
 }
 
-
+/* Score display pinned to the top-right corner */
 .score-box {
-    position: absolute;
-    top: 24px;
-    right: 24px;
+    position: absolute;        /* Positioned relative to <body> coordinates */
+    top: 24px;                 /* 24px down from the top edge */
+    right: 24px;               /* 24px in from the right edge */
     text-align: right;
     font-size: 1em;
     font-weight: 500;
@@ -21,30 +28,34 @@ body {
     line-height: 1.5;
 }
 
+/* Specific styling for numbers inside .score-box */
 .score-box span {
-    font-weight: 700;
+    font-weight: 700;          /* Bold text */
     color: #000;
 }
 
+/* Main card column containing the poem and buttons */
 .container {
     width: 100%;
-    max-width: 500px;
+    max-width: 500px;          /* Won't grow wider than 500px on large displays */
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    /* Stack children vertically instead of side-by-side */
     align-items: center;
-    gap: 18px;
+    gap: 18px;                 /* Spacing between vertical items */
 }
 
+/* The card box displaying the generated poem */
 .poem-box {
     width: 100%;
     min-height: 180px;
     background-color: #ffffff;
     border: 1px solid #e2e2e5;
-    border-radius: 12px;
+    border-radius: 12px;       /* Rounded corners */
     padding: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Subtle drop-shadow: offset-x, offset-y, blur-radius, color(rgba) */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
@@ -52,8 +63,8 @@ body {
     font-size: 1.25rem;
     line-height: 1.6;
     text-align: center;
-    text-wrap: balance;
-    word-break: break-word;
+    text-wrap: balance;        /* Distributes multi-line text evenly */
+    word-break: break-word;    /* Prevents extra long words from overflowing the box */
 }
 
 .prompt {
@@ -61,11 +72,13 @@ body {
     color: #666;
 }
 
+/* Button row container */
 .buttons {
     display: flex;
-    gap: 12px;
+    gap: 12px;                 /* Horizontal gap between the two buttons */
 }
 
+/* Base button styles */
 button {
     background-color: #ffffff;
     color: #111;
@@ -74,40 +87,48 @@ button {
     border-radius: 8px;
     font-size: 0.95rem;
     font-weight: 500;
-    cursor: pointer;
+    cursor: pointer;           /* Changes mouse cursor to a clicking hand */
+    /* Smoothly animates changes when hovering instead of snapping instantly */
     transition: background 0.15s ease, border-color 0.15s ease;
 }
 
+/* Pseudo-class: triggered when the user hovers over the button */
 button:hover {
     background-color: #eaeaea;
     border-color: #999;
 }
 
+/* Pseudo-class: triggered at the exact moment the button is pressed down */
 button:active {
-    transform: scale(0.98);
+    transform: scale(0.98);    /* Creates a slight "squish" click animation */
 }
 
+/* 
+  Full-screen backdrop layer where previous poems accumulate.
+  fixed position pins it to the screen viewport.
+*/
 .poem-wall {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: -1;
+    overflow: hidden;          /* Hide any overflow text off-screen */
+    pointer-events: none;      /* Clicks pass through to elements underneath */
+    z-index: -1;               /* Places this layer behind the main content (like layers in Photoshop) */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: left;
+    align-items: flex-start;
     padding: 40px;
     box-sizing: border-box;
 }
 
+/* Styling for discarded poem lines printed across the background wall */
 .background-poem-item {
     font-size: 1.5rem;
     color: #222;
-    opacity: 0.15;
+    opacity: 0.15;             /* Makes the text faint and ghost-like */
     text-align: left;
     margin: 8px 0;
     word-break: break-word;

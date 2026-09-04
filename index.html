@@ -1,32 +1,54 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
     <head>
-        <meta charset = "UTF-8" />
-        <title> Project 2</title>
-        <link rel="Stylesheet" href="index.css">
+        <!-- Metadata about character encoding so emojis and accents display correctly -->
+        <meta charset="UTF-8" />
         
+        <!-- The title that appears on the browser tab -->
+        <title>Project 4</title>
+        
+        <!-- Links external CSS styling file (analogous to importing a graphics module) -->
+        <link rel="Stylesheet" href="index.css">
     </head>
+    
+    <!-- 
+      Inline CSS style overriding the background color.
+      In general, styling is kept inside index.css, but inline styles have highest priority!
+    -->
     <body style="background-color: rgb(175, 175, 175);">
+        
+        <!-- Empty background container where past "nonsense" poems will be added via JS -->
         <div class="poem-wall" id="poem-wall"></div>
         
+        <!-- Scoreboard container: <span> tags act like inline variable placeholders -->
         <div class="score-box">
             <div>Score: <span id="score-display">0</span></div>
             <div>High Score: <span id="highscore-display">0</span></div>
         </div>
 
+        <!-- Semantic tag <main>: marks the primary content region of the webpage -->
         <main class="container">
             <div class="poem-box">
+                <!-- JavaScript will dynamically insert generated words inside this <p> tag -->
                 <p id="poem-display"></p>
             </div>
         
             <p class="prompt">Is this poem...</p>
+            
             <div class="buttons">
+                <!-- 
+                  onclick attributes bind click events to JavaScript functions,
+                  similar to passing a callback function in Python GUI frameworks (like tkinter)
+                -->
                 <button onclick="addWord()">Meaningful</button>
                 <button onclick="clearPoem()">Nonsense</button>
             </div>
         </main>
-        <script src = "project.js"></script>
-    </body>
 
-    
+        <!-- 
+          Load the JavaScript script file at the end of <body> so the HTML elements 
+          exist in memory before JavaScript tries to find them.
+        -->
+        <script src="project.js"></script>
+    </body>
 </html>
